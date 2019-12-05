@@ -1,10 +1,10 @@
 from collections import UserString
-from datetime import datetime, timedelta, time
+from datetime import datetime, timedelta
 import os
 
 class RefreshingToken(UserString):
 
-    def __init__(self, access_token=os.path.join(os.getenv("FBN_ACCESS_TOKEN_FILE"))):
+    def __init__(self, access_token_location =os.getenv("FBN_ACCESS_TOKEN_FILE")):
 
         token_data = {
             "expires": datetime.now(),
@@ -15,7 +15,7 @@ class RefreshingToken(UserString):
 
         def get_token():
             if token_data['expires'] <= datetime.now():
-                with open(access_token, "r") as access_token_file:
+                with open(access_token_location , "r") as access_token_file:
                     token_data['current_access_token'] = access_token_file.read()
 
                 token_data['expires'] = datetime.now() + timedelta(seconds=120)
