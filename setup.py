@@ -14,10 +14,6 @@ setup(
     license="MIT",
     keywords=["FINBOURNE", "LUSID", "LUSID API", "python"],
     packages=find_packages(exclude=["tests*"]),
-    install_requires=[
-        "collections",
-        "datetime",
-        "os"]
     include_package_data=True,
     python_requires=">=3.6",
 )
