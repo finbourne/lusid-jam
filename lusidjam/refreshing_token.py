@@ -4,7 +4,7 @@ import os
 
 
 class RefreshingToken(UserString):
-    def __init__(self, access_token_location=os.getenv("FBN_ACCESS_TOKEN_FILE")):
+    def __init__(self, access_token_location=os.getenv("FBN_ACCESS_TOKEN_FILE", None)):
 
         token_data = {"expires": datetime.now(), "current_access_token": ""}
 
@@ -12,7 +12,15 @@ class RefreshingToken(UserString):
 
         def get_token():
 
-            if not os.path.exists(access_token_location):
+            # Check if the env variable exists in the os
+
+            if access_token_location == None:
+
+                token_data["current_access_token"] = None
+
+            # Check if the environmental variable exists, but the file is not on the os
+
+            elif not(os.path.exists(access_token_location)):
 
                 token_data["current_access_token"] = None
 
