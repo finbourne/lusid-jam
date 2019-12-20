@@ -10,5 +10,10 @@ class TestRefreshToken(unittest.TestCase):
         token = RefreshingToken(access_token_location ="sample_token.txt")
         self.assertEqual(token, "TEST123TOKEN")
 
+    def test_refreshing_token_none(self):
+
+        token = RefreshingToken(access_token_location="bad_location.txt")
+        self.assertEqual(token, None)
+
 if __name__ == '__main__':
     unittest.main()
