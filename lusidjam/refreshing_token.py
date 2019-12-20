@@ -13,14 +13,9 @@ class RefreshingToken(UserString):
         def get_token():
 
             # Check if the env variable exists in the os
-
-            if access_token_location == None:
-
-                token_data["current_access_token"] = None
-
             # Check if the environmental variable exists, but the file is not on the os
 
-            elif not(os.path.exists(access_token_location)):
+            if access_token_location == None or not(os.path.exists(access_token_location)):
 
                 token_data["current_access_token"] = None
 
