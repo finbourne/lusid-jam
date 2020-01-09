@@ -1,6 +1,7 @@
 import unittest
 import os
-from lusidjam.refreshing_token import RefreshingToken
+from lusidjam import RefreshingToken
+
 
 class TestRefreshToken(unittest.TestCase):
 
@@ -8,7 +9,7 @@ class TestRefreshToken(unittest.TestCase):
 
         # Basic test to check that the function returns a hypothetical access token string from a txt file
 
-        token = RefreshingToken(access_token_location ="sample_token.txt")
+        token = RefreshingToken(access_token_location="sample_token.txt")
         self.assertEqual(token, "TEST123TOKEN")
 
     def test_refreshing_token_none(self):
