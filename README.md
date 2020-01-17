@@ -8,4 +8,4 @@ from lusidjam import RefreshingToken as rt
 api_factory = ApiClientFactory(token=rt.RefreshingToken(), api_url=os.getenv("FBN_LUSID_API_URL", None), app_name="Jupyter")
 ```
 
-`pip install lusid-jam`
+`$ pip install lusid-jam`
