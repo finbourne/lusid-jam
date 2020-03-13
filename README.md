@@ -1,3 +1,5 @@
+![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
+
 Use within a LUSID hosted Jupyter notebook as follows: 
 
 ```
